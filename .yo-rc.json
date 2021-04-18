@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "onprem",
+    "version": "1.11.0",
+    "libraryName": "jquery-datatable",
+    "libraryId": "d461c047-725e-4814-8375-f17c46738636",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

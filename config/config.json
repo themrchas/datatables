@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/jqueryDatatable/JqueryDatatableWebPart.js",
+      "manifest": "./src/webparts/jqueryDatatable/JqueryDatatableWebPart.manifest.json",
+      "outputPath": "./dist/jquery-datatable-web-part.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "JqueryDatatableWebPartStrings": "webparts/jqueryDatatable/loc/{locale}.js"
+  }
+}
