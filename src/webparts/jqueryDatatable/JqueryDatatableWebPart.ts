@@ -10,6 +10,8 @@ import styles from './JqueryDatatableWebPart.module.scss';
 import * as strings from 'JqueryDatatableWebPartStrings';
 
 
+
+
 //import * as DataTable from "datatables.net";
 //import $ from "jquery";
 import jQuery = require("jquery");
@@ -68,7 +70,7 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
 
     this.table = jQuery("#table_id").DataTable({
       //"select": true,
-      select: { style: "os", items: "cell"},
+      select: { style: "single", items: "cell"},
       columnDefs:[
         {targets: 0,  name:"Descriptive Name"},
         {targets: 1, visible:false},
@@ -89,18 +91,47 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
       return true;
     });
 
-    this.table.on( 'select', function ( e, dt, type, indexes ) {
+  /*  this.table.on( 'select', function ( e, dt, type, indexes ) {
 
       console.log("Yes - money. 'select' fired off");
-      /*if ( type === 'row' ) {
+      //if ( type === 'row' ) {
          // var data = this.table.rows( indexes ).data().pluck( 'id' );
-         console.log("Cell was just selected with data type", type,)
+         console.log("Cell was just selected with 'e'", e);
+         console.log("Cell was just selected with data type", type);
+         console.log("Cell was just selected with 'dt'", dt);
+         console.log("Cell was just selected with 'indexes[0]'", indexes[0]);
+         console.log("Cell was just selected with 'this'", this);
+         console.log("Cell was just selected with 'this.table'", this.table);
+         console.log("Cell value is", this.table.cell(1,0).data());
    
          
-      } */
-  } ); 
+    //  } 
+  } ); */
+
+ /* this.table.on ('select', ( e, dt, type, indexes ) => {
+    console.log("Cell was just selected with 'e'", e);
+         console.log("Cell was just selected with data type", type);
+         console.log("Cell was just selected with 'dt'", dt);
+         console.log("Cell was just selected with 'indexes[0]'", indexes[0]);
+         console.log("Cell was just selected with 'this'", this);
+         console.log("Cell was just selected with 'this.table'", this.table);
+         console.log("Cell value is", this.table.cell(indexes[0].row,indexes[0].column).data());
+        // this.table.cell(1,0).data("yes - money");
+        // console.log("Cell value is",this.table.cell(this).data());
+  }); */
+
+
+  //Setting background cell color with jQuery
+  jQuery("#table_id").on("click","td",function(event) {
+
+    console.log("Event is",event, "and 'this' is",this );
+    console.log("Event 'this' text is",jQuery(this).text());
+    jQuery(this).addClass("styles.clicked");
+  } )
 
   }
+
+  
 
 
   protected get dataVersion(): Version {
