@@ -14,6 +14,9 @@ https://www.datatables.net/manual/installation
 https://datatables.net/reference/option/
 https://datatables.net/manual/plug-ins/type-detection#Publish-your-plug-in
 
+https://datatables.net/reference/type/DataTables.Api - array-like
+
+https://datatables.net/manual/api - step by step example
 
 ## Applies to
 

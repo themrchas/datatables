@@ -49,8 +49,13 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
   public render(): void {
 
    
+  
+    
 
     (function($) {
+
+
+
       console.log("iief fired off with '$'", $);
       console.log("$.fn.dataTable.ext.type.detect[0] is",$.fn.dataTable.ext.type.detect[0] );
 
@@ -66,14 +71,21 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
       
     })(jQuery);
 
-    this.domElement.innerHTML = TableData.templateHtml ;
+    this.domElement.innerHTML = `<div class="${styles.clicked}">Hello World</div>`+
+    TableData.templateHtml ;
+
+   /* this.domElement.innerHTML = `
+    <div class="${styles.clicked}">World</div>
+    TableData.templateHtml
+    `
+*/
 
     this.table = jQuery("#table_id").DataTable({
       //"select": true,
       select: { style: "single", items: "cell"},
       columnDefs:[
         {targets: 0,  name:"Descriptive Name"},
-        {targets: 1, visible:false},
+        {targets: 1, visible:true},
         {targets: 2, type:"beavis"}
       ] 
     });
@@ -108,26 +120,40 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
     //  } 
   } ); */
 
- /* this.table.on ('select', ( e, dt, type, indexes ) => {
+ this.table.on ('select', ( e, dt, type, indexes ) => {
     console.log("Cell was just selected with 'e'", e);
          console.log("Cell was just selected with data type", type);
          console.log("Cell was just selected with 'dt'", dt);
          console.log("Cell was just selected with 'indexes[0]'", indexes[0]);
          console.log("Cell was just selected with 'this'", this);
          console.log("Cell was just selected with 'this.table'", this.table);
+         console.log("Cell was just selected with 'this.table.type'", this.table.type);
          console.log("Cell value is", this.table.cell(indexes[0].row,indexes[0].column).data());
+       //  jQuery(this).addClass(`${styles.clicked}`);
+
+       console.log("Cell 'this.table[ type ]( indexes )' ",this.table[ type ]( indexes ) )
+       console.log("Cell 'this.table.length' ",this.table.length);
+       console.log("Cell 'this.table[ type ]' ",this.table[ type ]);
+      //did not work -  this.table[ type ]( indexes ).nodes().to$().addClass( 'custom-selected' );
+
         // this.table.cell(1,0).data("yes - money");
         // console.log("Cell value is",this.table.cell(this).data());
-  }); */
+  }); 
+
+  
 
 
-  //Setting background cell color with jQuery
-  jQuery("#table_id").on("click","td",function(event) {
+  //Setting background cell color with jQuery - worked 
+ /* jQuery("#table_id").on("click.dt","td",function(event) {
 
     console.log("Event is",event, "and 'this' is",this );
     console.log("Event 'this' text is",jQuery(this).text());
-    jQuery(this).addClass("styles.clicked");
-  } )
+  // jQuery(this).addClass("styles.clicked");
+  jQuery(this).addClass(`${styles.clicked}`);
+
+  } ) */
+
+  
 
   }
 
