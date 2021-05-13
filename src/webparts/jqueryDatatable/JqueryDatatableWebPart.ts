@@ -80,6 +80,7 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
     `
 */
 
+    //Get instance of Datatable API on the table
     this.table = jQuery("#table_id").DataTable({
       //"select": true,
       select: { style: "single", items: "cell"},
@@ -124,16 +125,39 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
     console.log("Cell was just selected with 'e'", e);
          console.log("Cell was just selected with data type", type);
          console.log("Cell was just selected with 'dt'", dt);
-         console.log("Cell was just selected with 'indexes[0]'", indexes[0]);
+         console.log("Cell was just selected with 'indexes'", indexes);
          console.log("Cell was just selected with 'this'", this);
          console.log("Cell was just selected with 'this.table'", this.table);
          console.log("Cell was just selected with 'this.table.type'", this.table.type);
+
+
          console.log("Cell value is", this.table.cell(indexes[0].row,indexes[0].column).data());
+        
+
+       //  console.log("addClass to cell ", this.table.cell(indexes[0].row,indexes[0].column).node().addClass(`${styles.clicked}`));
        //  jQuery(this).addClass(`${styles.clicked}`);
 
-       console.log("Cell 'this.table[ type ]( indexes )' ",this.table[ type ]( indexes ) )
+       console.log("**Cell 'this.table.cells()'.... ",this.table.cells()) 
+      // this.table[ type ]( indexes ).cell()
+      // console.log("Cell 'this.table[ type ]( indexes ).node()' ",this.table[ type ]( indexes ).cell().node() )
+      console.log("Cell 'this.table[ type ]( indexes )'....", this.table[ type ]( indexes ) );
+
+     // console.log("Cell 'this.table[ type ]( indexes ).cell().node().addClass()'....", this.table[ type ]( indexes ).cell().node().addClass() );
+    //  this.table[ type ]( indexes ).cell().nodes().to$().addClass(`${styles.clicked}`) 
+    
+    this.table.cells().nodes().to$().removeClass(`${styles.clicked}`);
+    
+    //Works
+    this.table[ type ]( indexes ).nodes().to$().addClass(`${styles.clicked}`);
+    
+    console.log("# cells that don't have class", this.table.cells(":not(."+`${styles.clicked}`+")").nodes())
+    //this.table.cells(":not(."+`${styles.clicked}`+")").nodes
+
+
+
        console.log("Cell 'this.table.length' ",this.table.length);
        console.log("Cell 'this.table[ type ]' ",this.table[ type ]);
+       console.log("Cell 'this.table.cell' ",this.table.cell );
       //did not work -  this.table[ type ]( indexes ).nodes().to$().addClass( 'custom-selected' );
 
         // this.table.cell(1,0).data("yes - money");
@@ -159,7 +183,7 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
 
 
 
-  this.table.on('select.dt',  ( e, dt, type, indexes )  => {
+  /*this.table.on('select.dt',  ( e, dt, type, indexes )  => {
     
       console.log("select: jQuery event object is 'e'", e);
       console.log("select: DataTables API instance is 'dt'", dt);
@@ -173,7 +197,7 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
       
 
 
-    });
+    }); */
 
   } //render
 
