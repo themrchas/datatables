@@ -16,6 +16,9 @@ https://datatables.net/manual/plug-ins/type-detection#Publish-your-plug-in
 
 Buttons - https://datatables.net/extensions/buttons/built-in
 
+https://datatables.net/reference/type/DataTables.Api - array-like
+
+https://datatables.net/manual/api - step by step example
 
 ## Applies to
 
