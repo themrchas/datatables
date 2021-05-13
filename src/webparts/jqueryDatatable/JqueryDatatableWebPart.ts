@@ -122,14 +122,34 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
 
 
   //Setting background cell color with jQuery
-  jQuery("#table_id").on("click","td",function(event) {
+/*  jQuery("#table_id").on("click","td",function(event) {
 
     console.log("Event is",event, "and 'this' is",this );
     console.log("Event 'this' text is",jQuery(this).text());
     jQuery(this).addClass("styles.clicked");
-  } )
+  } ) */
 
-  }
+
+
+
+
+  this.table.on('select.dt',  ( e, dt, type, indexes )  => {
+    
+      console.log("select: jQuery event object is 'e'", e);
+      console.log("select: DataTables API instance is 'dt'", dt);
+      console.log("select: type is 'type'", type);
+      console.log("select: indexes of selected item is 'indexes'", indexes);
+      console.log("select: cell data is",this.table.cell(indexes).data());
+
+      console.log("select: 'this' is", this);
+
+      this.table.cell(indexes).addClass("${styles.clicked}");  //.addClass(styles.clicked);
+      
+
+
+    });
+
+  } //render
 
   
 

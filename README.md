@@ -14,6 +14,8 @@ https://www.datatables.net/manual/installation
 https://datatables.net/reference/option/
 https://datatables.net/manual/plug-ins/type-detection#Publish-your-plug-in
 
+Buttons - https://datatables.net/extensions/buttons/built-in
+
 
 ## Applies to
 
