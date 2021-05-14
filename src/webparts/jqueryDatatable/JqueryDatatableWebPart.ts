@@ -22,8 +22,22 @@ import jQuery = require("jquery");
 
 import 'datatables.net';
 //import 'datatables.net-dt';
+
+//const blah = require('datatables.net-dt');
+//require('datatables.net-dt')();
+
+
 import 'datatables.net-dt/css/jquery.dataTables.css';
 import  'datatables.net-select';
+import 'datatables.net-buttons';
+
+//import 'datatables.net-buttons-dt';
+//require('datatables.net-buttons/js/buttons.html5.js')();
+
+
+//import 'datatables.net-buttons/js/buttons.html5.js'
+
+import 'datatables.net-buttons-dt/css/buttons.dataTables.css';
 
 //import select = require( 'datatables.net-select' )( window, $ );
 
@@ -88,7 +102,9 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
         {targets: 0,  name:"Descriptive Name"},
         {targets: 1, visible:true},
         {targets: 2, type:"beavis"}
-      ] 
+      ] ,
+      dom: 'Bfrtip',
+      buttons: [ 'pdf' ]
     });
 
 

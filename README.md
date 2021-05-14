@@ -14,7 +14,24 @@ https://www.datatables.net/manual/installation
 https://datatables.net/reference/option/
 https://datatables.net/manual/plug-ins/type-detection#Publish-your-plug-in
 
+
+
+NPM requirements:
+
+https://datatables.net/download/npm
+
+https://datatables.net/download/release - individual file requirements
+
 Buttons - https://datatables.net/extensions/buttons/built-in
+
+Buttons - https://www.npmjs.com/package/datatables.net-buttons; 
+ https://www.npmjs.com/package/datatables.net-buttons-dt
+install @types/datatables.net-buttons
+
+https://medium.com/jspoint/typescript-module-system-5022cac310f6 - modules
+
+Need styling package for buttons
+Need to install pdfmake and jszip
 
 https://datatables.net/reference/type/DataTables.Api - array-like
 
@@ -30,6 +47,10 @@ https://datatables.net/manual/api - step by step example
 ## Prerequisites
 
 > Any special pre-requisites?
+
+Can we install the @types in the devDependencies?
+
+Typescript module resolution: https://www.typescriptlang.org/docs/handbook/module-resolution.html
 
 ## Solution
 
