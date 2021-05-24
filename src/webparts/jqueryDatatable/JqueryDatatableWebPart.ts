@@ -14,7 +14,8 @@ import * as strings from 'JqueryDatatableWebPartStrings';
 
 //import * as DataTable from "datatables.net";
 //import $ from "jquery";
-import jQuery = require("jquery");
+//import jQuery = require("jquery");
+import $ = require("jquery");
 //$ = jQuery;
 //import 'datatables.net-dt/css/jquery.dataTables.css'
 //import  dtt = require( 'datatables.net' );
@@ -30,6 +31,7 @@ import 'datatables.net';
 import 'datatables.net-dt/css/jquery.dataTables.css';
 import  'datatables.net-select';
 import 'datatables.net-buttons';
+//require('datatables.net-buttons');
 
 //import 'datatables.net-buttons-dt';
 //require('datatables.net-buttons/js/buttons.html5.js')();
@@ -37,7 +39,26 @@ import 'datatables.net-buttons';
 
 //import 'datatables.net-buttons/js/buttons.html5.js'
 
+//import './datatables.net-buttons/js/buttons.html5.js';
+require( 'datatables.net-buttons/js/buttons.html5.js' );
 import 'datatables.net-buttons-dt/css/buttons.dataTables.css';
+
+//import './pdfmake/build/pdfmake';
+//import './pdfmake/build/vfs_fonts';
+
+
+//These 3 lines are required to have the 'pdf' button appear as well as work
+import pdfMake = require('pdfmake/build/pdfmake');
+import pdfFonts = require('pdfmake/build/vfs_fonts');
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+//import * as JSZip from "jszip";
+//window.JSZip = JSZip;
+
+//import JSZip = require('jszip');
+//import * as JSZip from 'jszip';
+//window['JSZip'] = JSZip;
+require('jszip');
 
 //import select = require( 'datatables.net-select' )( window, $ );
 
@@ -57,7 +78,9 @@ export interface IJqueryDatatableWebPartProps {
 
 export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJqueryDatatableWebPartProps> {
 
- private rows:  any; 
+  //pdfMake.vfs = pdfFonts.pdfMake.vfs;
+ 
+  private rows:  any; 
   private table: any; 
 
   public render(): void {
@@ -83,28 +106,26 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
           return null;
       })
       
-    })(jQuery);
+  //  })(jQuery);
+})($);
 
-    this.domElement.innerHTML = `<div class="${styles.clicked}">Hello World</div>`+
-    TableData.templateHtml ;
+   /* this.domElement.innerHTML = `<div class="${styles.clicked}">Hello World</div>`+
+    TableData.templateHtml ; */
 
-   /* this.domElement.innerHTML = `
-    <div class="${styles.clicked}">World</div>
-    TableData.templateHtml
-    `
-*/
+    this.domElement.innerHTML = TableData.templateHtml
+
 
     //Get instance of Datatable API on the table
-    this.table = jQuery("#table_id").DataTable({
+    this.table = $("#table_id").DataTable({
       //"select": true,
       select: { style: "single", items: "cell"},
       columnDefs:[
         {targets: 0,  name:"Descriptive Name"},
         {targets: 1, visible:true},
         {targets: 2, type:"beavis"}
-      ] ,
+      ], 
       dom: 'Bfrtip',
-      buttons: [ 'pdf' ]
+      buttons: [ 'pdf', 'copy', 'excel' ]
     });
 
 
@@ -113,7 +134,8 @@ export default class JqueryDatatableWebPart extends BaseClientSideWebPart<IJquer
 
     console.log("this.table.data is",this.table.data());
 
-    console.log('jQuery.fn.Datable is',jQuery.fn.DataTable);
+   // console.log('jQuery.fn.Datable is',jQuery.fn.DataTable);
+   console.log('jQuery.fn.Datable is',$.fn.DataTable);
 
     this.rows = this.table.cells(function ( idx, data, node ) {
       console.log("'idx'",idx,"'data'",data,"'node'",node);

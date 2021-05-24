@@ -19,6 +19,8 @@
     "@types/datatables.net": "^1.10.19",
     "@types/datatables.net-buttons": "^1.4.5",
     "@types/datatables.net-select": "^1.2.6",
+    "@types/jszip": "^3.4.1",
+    "@types/pdfmake": "^0.1.17",
     "datatables.net": "^1.10.24",
     "datatables.net-buttons": "^1.7.0",
     "datatables.net-buttons-dt": "^1.7.0",

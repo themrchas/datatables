@@ -24,6 +24,7 @@ https://datatables.net/download/release - individual file requirements
 
 Buttons - https://datatables.net/extensions/buttons/built-in
 
+
 Buttons - https://www.npmjs.com/package/datatables.net-buttons; 
  https://www.npmjs.com/package/datatables.net-buttons-dt
 install @types/datatables.net-buttons
@@ -31,11 +32,15 @@ install @types/datatables.net-buttons
 https://medium.com/jspoint/typescript-module-system-5022cac310f6 - modules
 
 Need styling package for buttons
-Need to install pdfmake and jszip
+Need to install pdfmake and jszip...... https://stackoverflow.com/questions/46856550/pdfmake-roboto-regular-ttf-not-found-in-virtual-file-system-only-after-gulp
 
 https://datatables.net/reference/type/DataTables.Api - array-like
 
 https://datatables.net/manual/api - step by step example
+
+
+
+https://datatables.net/forums/discussion/49747/excel-button-not-showing-up-using-webpack  READ
 
 ## Applies to
 
@@ -43,6 +48,12 @@ https://datatables.net/manual/api - step by step example
 - [Microsoft 365 tenant](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
 
 > Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
+
+## Current issues
+
+5/24 - Working on getting jszip integrated with excel button
+
+
 
 ## Prerequisites
 
